@@ -1,0 +1,436 @@
+/* media query are at the bottom */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #958888;
+}
+
+body{
+    position: relative;
+    display: flex;
+    background-color: #0A0909;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.pageDivider1 {
+    position: relative;
+    display: grid;
+    align-content: space-around;
+    justify-items: center;
+    width: 60vw;
+    padding: 0 clamp(20px, 5vw, 60px);
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    color: #B2A3A3;
+    font-weight: 600;
+    background-color: #0A0909;
+    z-index: 10;
+}
+
+.navButton {
+    position: relative;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
+.navButton::after {
+    content: '';
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 0;
+	height: 100%;
+    border-radius: 2px;
+	background-color: #fff;
+	transition: .5s;
+    mix-blend-mode: difference;
+}
+
+#home::after {
+    width: var(--homeAfter, 0);
+}
+
+#story::after {
+    width: var(--storyAfter, 0);
+}
+
+#cast::after {
+    width: var(--castAfter, 0);
+}
+
+#home:hover::after {
+    width: 100%;
+}
+
+#story:hover::after {
+    width: 100%;
+}
+
+#cast:hover::after {
+    width: 100%;
+}
+
+.storyTab {
+    position: absolute;
+    top: 80px;
+    right: -60vw;
+    width: 80%;
+    padding: 10%;
+    height: 80%;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: .5s;
+    z-index: 30;
+}
+
+.storyTab::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(70%);
+    z-index: -1;
+}
+
+.storyPara {
+    margin: 20px 0;
+}
+
+.storyTitle {
+    color: #fff;
+}
+
+.logoContainer {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+}
+
+.batmanLogo {
+    width: 70%;
+}
+
+.batmanLogoText {
+    margin: -60px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.screensButton {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    padding: 10px 30px;
+    color: #FFF;
+    font-size: .8em;
+    font-weight: 700;
+    letter-spacing: -0.52px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.ticketButton{
+    display: flex;
+    align-items: center;
+
+    background: #E30616;    
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    padding: 10px 20px;
+    color: #FFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.52px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.previewsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.preview {
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.previewImg {
+    width: 100%;
+    transition: scale .5s;
+
+}
+.preview:hover .previewImg{
+    scale: 1.1;
+    border: 1px solid gray;
+    margin: -1px;
+}
+
+/* ============================= divider2 =============================*/
+
+.pageDivider2 {
+    position: relative;
+    background: url(assets/teaser.png);
+    background-size: cover;
+    background-position: center;
+    width: 40vw;
+    z-index: 50;
+}
+
+.teaserButton {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+    cursor: pointer;
+}
+
+.teaserLogo  {
+    width: 50px;
+    height: 50px;
+}
+
+.teaserText {
+    color: #B2A3A3;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+/* cast tab */
+.castTab{
+    position: absolute;
+    background-color: #0A0909;
+    right: -70vw;
+    width: 90%;
+    height: 90%;
+    padding: 10%;
+    transition: .5s;
+
+}
+
+.castHeading {
+    color: #fff;
+    text-align: center;
+}
+
+.castsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.cast-member {
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(50% - 20px);
+    font-size: .8rem;
+}
+
+.cast-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .cast-member {
+        width: calc(25% - 20px);
+    }
+}
+
+
+/* ============================ Preview ============================ */
+
+.previewWindow {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    display: grid;
+    justify-items: center;
+    width: 70vw;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #212121b6;
+    border: 2px solid #000;
+    z-index: 60;
+
+    transform: translate(-80%, 0%) scale(.1);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .5s;
+}
+
+.previewWindowImg {
+    width: 95%;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+    margin-bottom: 20px;
+    padding: 2px 10px;
+}
+
+.previewQuote {
+    margin-top: -50px;
+}
+
+.previewClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* ====================== teaser video ============================= */
+.teaserVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: grid;
+    justify-items: center;
+
+    width: 70vw;
+    padding: 40px 0;
+    border-radius: 20px;
+    background-color: #212121b6;
+    border: 2px solid #000;
+    transition: .5s;
+    z-index: 60;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-20%, -10%) scale(.1);
+}
+
+.teaserClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.youtubeVideo {
+    width: 95%;
+    height: 70vh;
+    border-radius: 20px;
+    border: none;
+}
+
+
+@media (max-width: 800px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .pageDivider1 {
+        width: 100vw;
+    }
+    
+    .pageDivider2 {
+        height: 100vh;
+        width: 100vw;
+    }
+    .batmanLogoText {
+        margin: -40px;
+    }
+
+    .preview {
+        width: 70%;
+        max-width: 400px;
+    }
+
+    .previewsContainer {
+        flex-direction: column;
+        margin: 35px 0;
+    }
+
+    .previewWindow {
+        top: 25%;
+        width: 90vw;
+        padding: 5px;
+    }
+
+    .previewWindowImg {
+        height: 50dvh;
+        object-fit: cover;
+        padding: 5px;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 1em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    .teaserVideo {
+        top: 75%;
+        width: 90vw;
+        padding: 5px;
+    }
+
+    .storyTab {
+        right: -100vw;
+    }
+
+    .storyPara {
+        font-size: 1rem;
+    }
+
+    .screensButton {
+        padding: 10px 20px;
+        font-size: .7em;
+    }
+    
+    .ticketButton{
+        padding: 10px 20px;
+        font-size: .7em;
+    }
+}
